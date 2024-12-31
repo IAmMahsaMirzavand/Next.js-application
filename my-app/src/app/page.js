@@ -1,21 +1,31 @@
 import { Suspense } from 'react';
-import Users from '../components/Users.jsx';
-import Posts from '../components/Posts.jsx';
-import Recipes from '../components/Recipes.jsx';
+import UsersList from '../components/UsersList.jsx';
+import PostsList from '../components/PostsList';
+import RecipesList from '../components/RecipesList';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 export default function HomePage() {
   return (
     <div>
-      <h1>HomePage</h1>
-      <Suspense fallback={<p>Loading Users...</p>}>
-        <Users />
-      </Suspense>
-      <Suspense fallback={<p>Loading Posts...</p>}>
-        <Posts />
-      </Suspense>
-      <Suspense fallback={<p>Loading Recipes...</p>}>
-        <Recipes />
-      </Suspense>
+      <h1>Home Page</h1>
+      <section>
+        <h2>Users</h2>
+        <Suspense fallback={<LoadingSpinner />}>
+          <UsersList />
+        </Suspense>
+      </section>
+      <section>
+        <h2>Posts</h2>
+        <Suspense fallback={<LoadingSpinner />}>
+          <PostsList />
+        </Suspense>
+      </section>
+      <section>
+        <h2>Recipes</h2>
+        <Suspense fallback={<LoadingSpinner />}>
+          <RecipesList />
+        </Suspense>
+      </section>
     </div>
   );
 }

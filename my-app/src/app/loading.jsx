@@ -1,6 +1,5 @@
-import React from 'react'
-
-export default function loading() {
-  return <p>Loading...</p>
-   
-}
+// app/loading.js
+export default function Loading() {
+    return <div>Loading the page...</div>;
+  }
+  

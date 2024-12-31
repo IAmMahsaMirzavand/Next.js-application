@@ -1,29 +1,23 @@
-import { getData } from '@/utils/action'
-import React from 'react'
-import CardItem from "../../components/CardItem";
-async function users() {
+import dynamic from "next/dynamic";
 
-const data = await getData('https://dummyjson.com/users')
 
-const users = data.users.slice(0,7); 
+const UsersList = dynamic(() => import("@/components/UsersList"), {
+  loading: () => <p>Loading Users...</p>, 
+  ssr: false, 
+});
+
+export const metadata = {
+  title: "Users",
+  description: "about users ",
+};
+
+export default function UsersPage() {
   return (
-    <>
-     <div style={{ padding: "20px" }}>
-      <h1 style={{ textAlign: "center" }}>User List</h1>
-      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-    {users.map((user) => (
-
-<CardItem  key={user.id} data={user}  type={"users"}  />
-    ))}
-    
+    <div>
+      <h1>Users</h1>
+      <div>
+        <UsersList />
+      </div>
     </div>
-    </div>
-    </>
-  )
+  );
 }
-
-export default users
-
-
-
-

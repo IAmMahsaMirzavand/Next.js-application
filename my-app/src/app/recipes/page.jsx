@@ -1,27 +1,23 @@
-import CardRecipes from '@/components/CardRecipes';
-import { getData } from '@/utils/action'
-import React from 'react'
+import dynamic from "next/dynamic";
 
-async function page() {
 
-    const data = await getData('https://dummyjson.com/recipes')
+const RecipesList = dynamic(() => import("@/components/RecipesList"), {
+  loading: () => <p>Loading Recipes...</p>, 
+  ssr: false, 
+});
 
-    const recipes = data.recipes.slice(0,7);
+export const metadata = {
+  title: "Recipes",
+  description: "about recipes ",
+};
+
+export default function RecipesPage() {
   return (
-    <>
-      <div style={{ padding: "20px" }}>
-      <h1 style={{ textAlign: "center" }}>User List</h1>
-      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-{recipes.map((recipe) => (
-
-<CardRecipes key={recipe.id} data={recipe} type={"recipes"} />
-
-))}
-
-</div>
-</div>
-    </>
-  )
+    <div>
+      <h1>Recipes</h1>
+      <div>
+        <RecipesList />
+      </div>
+    </div>
+  );
 }
-
-export default page

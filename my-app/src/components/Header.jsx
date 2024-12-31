@@ -6,22 +6,22 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
+// import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+// import AdbIcon from '@mui/icons-material/Adb';
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const pages = [
   { name: 'Home', path: '/' },
-  { name: 'Support', path: '/support' },
-  { name: 'Store', path: '/store' },
-  { name: 'About', path: '/about' },
+  { name: 'Users', path: '/users' },
+  { name: 'Posts', path: '/posts' },
+  { name: 'Recipes', path: '/recipes' },
 ];
 
 const settings = ['Log In', 'Register'];
@@ -49,7 +49,7 @@ function Header() {
     <AppBar position="static" sx={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
           <Typography
             variant="h6"
             noWrap
@@ -80,7 +80,7 @@ function Header() {
             >
               <MenuIcon />
             </IconButton>
-            <Menu
+            {/* <Menu */}
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
@@ -95,7 +95,7 @@ function Header() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: 'block', md: 'none' } }}
-            >
+            {/* > */}
               {pages.map((page) => (
                 <MenuItem key={page.name} onClick={handleCloseNavMenu}>
                   <Link href={page.path} passHref>
@@ -105,7 +105,7 @@ function Header() {
                   </Link>
                 </MenuItem>
               ))}
-            </Menu>
+            {/* </Menu> */}
           </Box>
 
           
@@ -135,7 +135,7 @@ return (
                 <Avatar alt="Remy Sharp" src="" />
               </IconButton>
             </Tooltip>
-            <Menu
+            {/* <Menu */}
               sx={{ mt: '45px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
@@ -150,13 +150,13 @@ return (
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
-            >
+            {/* > */}
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
                 </MenuItem>
               ))}
-            </Menu>
+            {/* </Menu> */}
           </Box>
         </Toolbar>
       </Container>
@@ -165,9 +165,6 @@ return (
 }
 
 export default Header;
-
-
-
 
 
 

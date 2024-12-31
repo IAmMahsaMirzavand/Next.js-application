@@ -1,4 +1,5 @@
-"use client";
+// app/error.js
+'use client';
 
 export default function Error({ error, reset }) {
   return (

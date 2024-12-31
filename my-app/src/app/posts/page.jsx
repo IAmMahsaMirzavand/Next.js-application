@@ -1,27 +1,23 @@
-import CardPosts from '@/components/CardPosts';
-import { getData } from '@/utils/action'
-import React from 'react'
+import dynamic from "next/dynamic";
 
-async function page() {
 
-    const data = await getData('https://dummyjson.com/posts')
+const PostsList = dynamic(() => import("@/components/PostsList"), {
+  loading: () => <p>Loading Posts...</p>, 
+  ssr: false, 
+});
 
-    const posts = data.posts.slice(0,7);
+export const metadata = {
+  title: "Posts",
+  description: "about posts ",
+};
+
+export default function PostsPage() {
   return (
-    <>
-      <div style={{ padding: "20px" }}>
-      <h1 style={{ textAlign: "center" }}>User List</h1>
-      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-{posts.map((post) => (
-
-<CardPosts key={post.id} data={post} type={"posts"} />
-
-))}
-
-</div>
-</div>
-    </>
-  )
+    <div>
+      <h1>Posts</h1>
+      <div>
+        <PostsList />
+      </div>
+    </div>
+  );
 }
-
-export default page
