@@ -1,0 +1,19 @@
+/* styles/globals.css */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin: 16px;
+  cursor: pointer;
+}
+
+.card img {
+  max-width: 100%;
+}
+
+.loading-spinner {
+  text-align: center;
+}
