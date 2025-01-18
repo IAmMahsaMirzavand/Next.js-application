@@ -1,23 +1,19 @@
-import dynamic from "next/dynamic";
-
-
-const PostsList = dynamic(() => import("@/components/PostsList"), {
-  loading: () => <p>Loading Posts...</p>, 
-  ssr: false, 
-});
+import FormPost from "@/components/FormPost";
+import Posts from "@/components/Posts";
+import React from "react";
 
 export const metadata = {
   title: "Posts",
   description: "about posts ",
 };
 
-export default function PostsPage() {
+const page = () => {
   return (
-    <div>
-      <h1>Posts</h1>
-      <div>
-        <PostsList />
-      </div>
+    <div className=" p-10">
+      <FormPost/>
+      <Posts />
     </div>
   );
-}
+};
+
+export default page;

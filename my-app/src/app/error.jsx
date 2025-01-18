@@ -1,12 +1,14 @@
-// app/error.js
-'use client';
+"use client";
 
-export default function Error({ error, reset }) {
+import React from "react";
+
+function error({ error, reset }) {
   return (
     <div>
-      <h2>Something went wrong!</h2>
-      <p>{error.message}</p>
-      <button onClick={() => reset()}>Try again</button>
+      <p mt={10}>{error.message}</p>
+      <button onClick={() => reset()}>reset</button>
     </div>
   );
 }
+
+export default error;

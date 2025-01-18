@@ -1,15 +1,28 @@
-// /** @type {import('next').NextConfig} */
-// const nextConfig = {
-//   images: {
-//     domains: ['cdn.dummyjson.com'], 
-//   },
-// };
-
-// export default nextConfig;
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['dummyjson.com', 'cdn.dummyjson.com'], 
+    remotePatterns: [
+      // {
+      //   protocol: 'https',
+      //   hostname: 'dummyjson.com',
+      // },
+      // {
+      //   protocol: 'https',
+      //   hostname: 'cdn.dummyjson.com',
+      // },
+      // {
+      //   protocol: 'https',
+      //   hostname: 'en.wikipedia.org',
+      // },
+      // {
+      //   protocol: 'https',
+      //   hostname: 'as1.ftcdn.net',
+      // },
+      {
+        protocol: 'https', 
+        hostname: '**', 
+      },
+    ],
   },
 };
 

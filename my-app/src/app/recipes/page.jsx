@@ -1,23 +1,19 @@
-import dynamic from "next/dynamic";
-
-
-const RecipesList = dynamic(() => import("@/components/RecipesList"), {
-  loading: () => <p>Loading Recipes...</p>, 
-  ssr: false, 
-});
+import FormRecipe from "@/components/FormRecipe";
+import Recipes from "@/components/Recipes";
+import React from "react";
 
 export const metadata = {
   title: "Recipes",
-  description: "about recipes ",
+  description: "about recipes",
 };
 
-export default function RecipesPage() {
+const page = () => {
   return (
-    <div>
-      <h1>Recipes</h1>
-      <div>
-        <RecipesList />
-      </div>
+    <div className=" p-10">
+      <FormRecipe/>
+      <Recipes />
     </div>
   );
-}
+};
+
+export default page;

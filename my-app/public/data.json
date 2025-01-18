@@ -1,0 +1,63 @@
+ {
+    "users": [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "age": 25,
+        "gender": "male",
+        "birthDate": "1998-03-15",
+        "address": "123 Main St, Springfield, USA",
+        "role": "student",
+        "university": "Springfield University"
+      },
+      {
+        "id": 2,
+        "name": "Jane Smith",
+        "email": "jane.smith@example.com",
+        "age": 28,
+        "gender": "female",
+        "birthDate": "1995-07-22",
+        "address": "456 Elm St, Metropolis, USA",
+        "role": "professor",
+        "university": "Metropolis University"
+      }
+    ],
+    "posts": [
+      {
+        "title": "Understanding NestJS Basics",
+        "body": "NestJS is a progressive Node.js framework for building efficient and scalable server-side applications.",
+        "likes": 120,
+        "dislikes": 10,
+        "views": 1500
+      },
+      {
+        "title": "Advanced TypeScript Tips",
+        "body": "Master TypeScript with these advanced tips and tricks.",
+        "likes": 200,
+        "dislikes": 15,
+        "views": 3000
+      }
+    ],
+    "recipes": [
+      {
+        "name": "Spaghetti Carbonara",
+        "rating": 4.8,
+        "views": 5000,
+        "ingredients": ["spaghetti", "eggs", "parmesan cheese", "bacon", "pepper"],
+        "instruction": "Boil the spaghetti. In a separate bowl, mix eggs and cheese. Fry the bacon, then combine everything with the spaghetti.",
+        "Cuisine": "Italian",
+        "calories": 600
+      },
+      {
+        "name": "Chicken Tikka Masala",
+        "rating": 4.9,
+        "views": 7000,
+        "ingredients": ["chicken", "yogurt", "spices", "tomatoes", "cream"],
+        "instruction": "Marinate chicken in yogurt and spices. Cook the chicken, then simmer in a spiced tomato and cream sauce.",
+        "Cuisine": "Indian",
+        "calories": 450
+      }
+    ]
+  }
+  

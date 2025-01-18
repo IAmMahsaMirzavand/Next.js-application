@@ -1,88 +1,88 @@
-import React from "react";
-import { Card, CardContent, CardActions, CardHeader, Typography, Button, Box } from "@mui/material";
+import FormUser from "@/components/FormUser";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { getData } from "@/utils/actions";
+// import getData from "@/utils/actions";
 import Link from "next/link";
-import { fetchData } from '../../../lib/fetchData';
+import React from "react";
 
+const userCard = async ({ params }) => {
+  const user = await getData(
+    `http://localhost:3000/api/v1/users/${params.id}`,
+    "users"
+  );
+  // const [user] = data;
 
-export async function generateMetadata({ params }) {
-  const user = await fetchData(`https://dummyjson.com/users/${params.id}`);
-  return {
-    title: `user: ${user.firstName}`,
-    description: `Details of the user ${user.firstName}`,
-  };
-}
-
-const UserCard = async ({ params }) => {
-  const user = await fetchData(`https://dummyjson.com/users/${params.id}`);
-  console.log(user);
-
-  const address = `${user.address.country} ${user.address.state} ${user.address.city} ${user.address.address}`;
+  const adress = user?.address;
 
   return (
-    <Box
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      height="90vh"
-      padding={4}
-    >
-      <Card sx={{ bgcolor: "slategray", width: "100%", maxWidth: "600px", margin: "auto", padding: 2 }}>
-        <CardHeader
-          title={
-            <Typography variant="h5" component="div">
-              {user.firstName} {user.lastName}
-            </Typography>
-          }
-        />
+    <div className="flex justify-center items-center  h-[90vh] p-4">
+      <Card className="bg-slate-200 w-full max-w-lg mx-auto my-10 h-auto">
+        <CardHeader>
+          <CardTitle className="flex items-center">
+            <h2 className="text-xl md:text-2xl">{user?.name}</h2>
+          </CardTitle>
+        </CardHeader>
         <CardContent>
-          <ul style={{ listStyleType: "none", padding: 0 }}>
+          <ul className="space-y-2">
             <li>
-              <Typography variant="body2">
-                <strong>Email:</strong> {user.email}
-              </Typography>
+              <span>Email:</span> {user?.email}
             </li>
             <li>
-              <Typography variant="body2">
-                <strong>Age:</strong> {user.age}
-              </Typography>
+              <span>Age:</span> {user?.age}
             </li>
             <li>
-              <Typography variant="body2">
-                <strong>Gender:</strong> {user.gender}
-              </Typography>
+              <span>Gender:</span> {user?.gender}
             </li>
             <li>
-              <Typography variant="body2">
-                <strong>Birth date:</strong> {user.birthDate}
-              </Typography>
+              <span>Birth date:</span> {user?.birthDate&& new Date(user.birthDate).toLocaleDateString()}
             </li>
             <li>
-              <Typography variant="body2">
-                <strong>Address:</strong> {address}
-              </Typography>
+              <span>Address:</span> {adress}
             </li>
             <li>
-              <Typography variant="body2">
-                <strong>Role:</strong> {user.role}
-              </Typography>
+              <span>Role:</span> {user?.role}
             </li>
             <li>
-              <Typography variant="body2">
-                <strong>University:</strong> {user.university}
-              </Typography>
+              <span>University:</span> {user?.university}
             </li>
           </ul>
         </CardContent>
-        <CardActions>
-          <Link href="/users" passHref>
-            <Button variant="contained" color="primary">
-              Back
-            </Button>
+        <CardFooter className="flex gap-4">
+          <Link href="/users">
+            <Button>Back</Button>
           </Link>
-        </CardActions>
+          <Dialog>
+            <DialogTrigger asChild>
+              <div className="bg-black py-[6px] px-5 rounded-[5px] text-white">
+                {" "}
+                Edit
+              </div>
+            </DialogTrigger>
+            <DialogContent aria-describedby={undefined}>
+              <DialogHeader>
+                <DialogTitle>Edit</DialogTitle>
+              </DialogHeader>
+              <FormUser user={user} />
+            </DialogContent>
+          </Dialog>
+        </CardFooter>
       </Card>
-    </Box>
+    </div>
   );
 };
 
-export default UserCard;
+export default userCard;

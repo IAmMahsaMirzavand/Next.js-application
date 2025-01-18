@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nextjs application
 
-## Getting Started
+![next.js app design](help/Group%204.png)
 
-First, run the development server:
+## Description
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+In your homework you should show three parts for : users, posts, recipes
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Homework Tasks:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### section 3
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. you should get all the data and show it with list in homePage in `/` route
+   - use https://dummyjson.com/docs api
+   - for users: https://dummyjson.com/users
+   - for posts: https://dummyjson.com/posts
+   - for recipes: https://dummyjson.com/recipes
+2. you should have overall not-found, loading and error files
 
-## Learn More
+3. you should handle loading for each of above three parts (use streaming)
 
-To learn more about Next.js, take a look at the following resources:
+4. define three route named `/posts`, `/users` , `/recipes` for showing more detail about those
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. each of that page should have several card component that each card show details of one of users or post or recipe
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+6. and in each the Card component we should have a button that have onClick event (naturally card component should be client component) for redirecting to the for example: users/[id] or /recipes/[id] or posts/[id](use useRouter() hook from next/navigation)
 
-## Deploy on Vercel
+7. you should create dynamic route page for showing more details of individual post or recipe or user
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### section 4
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. implement static metadata for `/` , `/posts`, `/recipes`, `/users` and dynamic metadata for dynamic route (/[id]) based on id or everything you wants
+
+2. in recipe card you should have image with next Image component
+
+3. for loading each card we should implement lazy loading(hint: dynamic from next/dynamic)
+
+### section 5
+
+1. instead of use https://dummyjson.com/docs api, define ourself api with api route(define get route for /posts ,/recipes , /users and /posts/[id] ,/recipes[id] , /users[id])
+
+2. also in api routes you should define POST, DELETE, PATCH request for each one of posts, recipes and users
+
+3. in the application create `/admin` route and in it you should define `/admin/users`, `/admin/recipes`, `/admin/posts` routes
+
+4. and in this pages(`/admin/users`, `/admin/recipes`, `/admin/posts`) you should modify the api data (DELETE, POST, PATCH)(hint: use action server)
+
+## How to Deliver the Assignment
+
+1. **Complete the Project:**
+
+   - Ensure that all the specified tasks are implemented.
+   - Test the website to confirm all functionalities work correctly, including the homepage, search, filter, country detail pages, dark/light mode, and responsiveness.
+
+2. **Prepare the Code:**
+
+   - Organize your code into a well-structured repository.
+   - Make sure your code is clean and well-commented.
+
+3. **Upload to GitHub:**
+
+   - Create a new public repository on [GitHub](https://github.com/).
+   - Push your project code to this repository.
+   - Ensure all necessary files are included in the repository.
+
+4. **Submit the Assignment:**
+   - Provide the link to your public GitHub repository.
+
+### Example of Submission Information:
+
+- **GitHub Repository:** [https://github.com/username/project-name](https://github.com/username/project-name)
