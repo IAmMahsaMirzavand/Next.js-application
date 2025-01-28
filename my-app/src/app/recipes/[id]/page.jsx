@@ -27,7 +27,7 @@ const recipeCard = async ({ params }) => {
     "recipes"
   );
   
-  // console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',recipe);
+  
 
   return (
     <div className="flex justify-center items-center h-[90vh] p-4 my-72 md:my-20 ">

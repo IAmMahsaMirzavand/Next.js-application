@@ -1,6 +1,6 @@
 import { connectDB, disconnectDB } from "@/db/connectDB";
 import Post from "@/db/models/Post";
-import { data } from "@/utils/data";
+
 import { revalidateTag } from "next/cache";
 
 export async function GET(req, { params }) {
@@ -63,7 +63,7 @@ export async function PATCH(req, { params }) {
     if (!updatedPost) {
       return new Response("post not found", { status: 404 });
     }
-    // revalidateTag("users");
+    revalidateTag("users");
     return new Response(JSON.stringify(updatedPost), {
       headers: { "Content-Type": "application/json" },
     });

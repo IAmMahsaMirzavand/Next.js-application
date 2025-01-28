@@ -9,11 +9,7 @@ const RecipeSchema = new Schema({
       },
       image: {
         type: String,
-        // validate: {
-        //   validator: (url) =>
-        //     /^(http|https):\/\/[^\s$.?#].[^\s]*$/.test(url),
-        //   message: "Invalid URL format",
-        // },
+      
       },
       ingredients: {
         type: [String],

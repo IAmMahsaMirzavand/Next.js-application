@@ -1,6 +1,6 @@
-// import getData from "@/utils/actions";
+
 import React from "react";
-import CardComponent from "./CardComponent";
+
 import dynamic from "next/dynamic";
 import { getData } from "@/utils/actions";
 

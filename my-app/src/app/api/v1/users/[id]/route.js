@@ -39,7 +39,7 @@ export async function DELETE(req, { params }) {
     if (!user) {
       return new Response("user not found", { status: 404 });
     }
-      // revalidateTag("users");
+      revalidateTag("users");
     return new Response(JSON.stringify({ success: true }), {
       headers: { "Content-Type": "application/json" },
     });
@@ -63,7 +63,7 @@ export async function PATCH(req, { params }) {
     if (!updatedUser) {
       return new Response("user not found", { status: 404 });
     }
-    // revalidateTag("users");
+    revalidateTag("users");
     return new Response(JSON.stringify(updatedUser), {
       headers: { "Content-Type": "application/json" },
     });

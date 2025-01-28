@@ -1,6 +1,6 @@
 import { connect, connection, disconnect } from "mongoose";
 
-const MONGO_URI = 'mongodb+srv://IAmMahsaMirzavand:IAmMahsa@cluster0.cszst.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+const MONGO_URI = 'mongodb+srv://mahsacb74:lIUzpt1T0nJZjQG4@cluster0.fnz5o.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 const connectDB = async () => {
   if (connection.readyState === 1) return;
   try {

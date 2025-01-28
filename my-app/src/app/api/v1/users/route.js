@@ -5,16 +5,14 @@ import { data } from "@/utils/data";
 import { revalidateTag } from "next/cache";
 
 
-// export async function POST(req) {
-//   return Response.json(data.users);
-// }
+
 
 export async function GET() {
   try {
     await connectDB();
     const users = await User.find();
 
-    // revalidateTag("users");
+    revalidateTag("users");
     return new Response(JSON.stringify(users), {
       headers: {
         "Content-Type": "application/json",
@@ -31,12 +29,12 @@ export async function GET() {
 export async function POST(req) {
   try {
     const body = await req.json()
-    // console.log("bodyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",body);
+   
     
     await connectDB();
     const user = await User.create(body);
 
-    // revalidateTag("users");
+    revalidateTag("users");
     return new Response(JSON.stringify(user), {
       headers: {
         "Content-Type": "application/json",

@@ -1,6 +1,6 @@
 import { connectDB, disconnectDB } from "@/db/connectDB";
 import Recipe from "@/db/models/Recipe";
-import { data } from "@/utils/data";
+
 
 export async function GET() {
   try {

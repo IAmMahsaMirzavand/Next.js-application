@@ -12,7 +12,7 @@ export const metadata = {
 const page = () => {
   return (
     <div className=" p-10">
-      {/* <FormUser /> */}
+      <FormUser />
       <Users />
     </div>
   );

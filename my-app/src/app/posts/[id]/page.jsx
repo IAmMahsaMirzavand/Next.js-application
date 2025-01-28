@@ -16,14 +16,13 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { getData } from "@/utils/actions";
-// import getData from "@/utils/actions";
+
 import Link from "next/link";
 import React from "react";
 
 const postCard = async ({ params }) => {
 const post = await getData(`http://localhost:3000/api/v1/posts/${params.id}`,"posts");
-  // const [post] = data;
-  // console.log(post);
+
   return (
     <div className="flex justify-center items-center h-[90vh] p-4">
       <Card className="bg-slate-200 w-full max-w-3xl my-4">
@@ -61,7 +60,7 @@ const post = await getData(`http://localhost:3000/api/v1/posts/${params.id}`,"po
               <DialogHeader>
                 <DialogTitle>Edit</DialogTitle>
               </DialogHeader>
-              {/* <FormUser user={user} /> */}
+              <FormUser user={user} />
               <FormPost post={post}/>
             </DialogContent>
           </Dialog>
